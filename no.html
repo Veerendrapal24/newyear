@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>No Option 😂🐷</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="fade-in roast">
+            KYA RE PANDHII EKVA CHESTUNAV 😂🐷<br>
+            
+        </h1>
+
+        <button class="option-btn yes" onclick="goBack()">
+            Go back and press OKAY!!
+        </button>
+    </div>
+
+    <div id="balloon-container"></div>
+
+
+<script>
+    function goBack() {
+        window.location.href = "index.html";
+    }
+
+    function createBalloons() {
+        const container = document.getElementById("balloon-container");
+
+        for (let i = 0; i < 8; i++) {
+            const balloon = document.createElement("div");
+            balloon.className = "balloon";
+
+            const img = document.createElement("img");
+            img.src = "pig.png"; // ✅ your pig photo
+            img.alt = "pig";
+
+            balloon.appendChild(img);
+
+            balloon.style.left = Math.random() * 100 + "vw";
+            balloon.style.animationDuration = (6 + Math.random() * 3) + "s";
+
+            container.appendChild(balloon);
+
+            setTimeout(() => balloon.remove(), 10000);
+        }
+    }
+
+    createBalloons();
+    setInterval(createBalloons, 2500);
+</script>
+
+
+
+</body>
+</html>

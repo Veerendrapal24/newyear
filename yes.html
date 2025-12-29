@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year Sruthiiiiluuu ✨</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* ========================= */
+/* 🌙 MIDNIGHT ROMANCE THEME */
+/* ========================= */
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(180deg, #0B132B, #060A18);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+/* Subtle moving night glow (FIXED: clicks allowed) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(255,215,0,0.08), transparent 60%);
+    animation: nightGlow 10s ease-in-out infinite alternate;
+    pointer-events: none; /* ✅ IMPORTANT FIX */
+}
+
+@keyframes nightGlow {
+    from { opacity: 0.4; }
+    to   { opacity: 0.8; }
+}
+
+/* ========================= */
+/* 🌟 MAIN CARD */
+/* ========================= */
+
+.container {
+    background: rgba(11, 19, 43, 0.85);
+    padding: 55px;
+    border-radius: 30px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+    text-align: center;
+    max-width: 900px;
+    animation: slideUp 1.4s ease forwards;
+    z-index: 2;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(60px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
+/* ========================= */
+/* ✨ TEXT STYLES */
+/* ========================= */
+
+.line {
+    font-size: 1.6rem;
+    color: #FFB6C1; /* Soft Rose */
+    margin: 12px 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.highlight {
+    font-size: 2.6rem;
+    color: #FFD700; /* Metallic Gold */
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(255,215,0,0.8);
+    animation: goldGlow 2s infinite alternate;
+}
+
+@keyframes goldGlow {
+    from { text-shadow: 0 0 10px rgba(255,215,0,0.6); }
+    to   { text-shadow: 0 0 25px rgba(255,215,0,1); }
+}
+
+/* ========================= */
+/* 🎆 FIREWORKS (GOLD) */
+/* ========================= */
+
+.firework {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background: #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    animation: explode 1.8s ease-out forwards;
+    box-shadow: 0 0 20px rgba(255,215,0,0.9);
+}
+
+@keyframes explode {
+    0%   { transform: scale(1); opacity: 1; }
+    100% { transform: scale(45); opacity: 0; }
+}
+
+/* ========================= */
+/* 🔁 BUTTONS */
+/* ========================= */
+
+.button-group {
+    margin-top: 35px;
+}
+
+button {
+    padding: 14px 34px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 30px;
+    background: #FFD700;
+    color: #0B132B;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0 8px;
+}
+
+button:hover {
+    background: #ffcc00;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="card"></div>
+
+<div class="button-group">
+    <button onclick="replay()">Replay ✨</button>
+    <button onclick="goNext()">Next ➡️</button>
+</div>
+
+<script>
+/* ========================= */
+/* ⌨️ TYPEWRITER POEM */
+/* ========================= */
+
+const lines = [
+"UPAR SE GIRA BOMB 💣",
+"2025 KHATAM",
+"SAMOSE MAI NIKLA AALU",
+"2026 CHAALU",
+"",
+"TUM NAHI HO MERE NEAR",
+"ISLIYE VIDEO BANAKE BEJ RAHA HU DEAR",
+"",
+"TUME MERI TARAF SE",
+'"HAPPY NEW YEAR SRUTHIIIILUUUUU" 🎉❤️'
+];
+
+const card = document.getElementById("card");
+let i = 0;
+
+function typeLines() {
+    if (i < lines.length) {
+        const div = document.createElement("div");
+        div.className = "line";
+        div.innerText = lines[i];
+
+        if (lines[i].includes("HAPPY NEW YEAR")) {
+            div.classList.add("highlight");
+        }
+
+        card.appendChild(div);
+        setTimeout(() => div.style.opacity = 1, 100);
+
+        i++;
+        setTimeout(typeLines, 650);
+    }
+}
+
+typeLines();
+
+/* ========================= */
+/* 🎆 FIREWORKS LOOP */
+/* ========================= */
+
+setInterval(() => {
+    const f = document.createElement("div");
+    f.className = "firework";
+    f.style.left = Math.random() * 90 + "vw";
+    f.style.top = Math.random() * 60 + "vh";
+    document.body.appendChild(f);
+    setTimeout(() => f.remove(), 1800);
+}, 900);
+
+/* ========================= */
+/* 🔁 BUTTON FUNCTIONS */
+/* ========================= */
+
+function replay() {
+    location.reload();
+}
+
+function goNext() {
+    window.location.href = "next.html";
+}
+</script>
+
+</body>
+</html>

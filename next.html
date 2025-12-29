@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Memories 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(180deg, #0B132B, #060A18);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #FFD700;
+}
+
+/* Text always visible */
+.text-layer {
+    position: absolute;
+    top: 8%;
+    text-align: center;
+    z-index: 3;
+    padding: 0 20px;
+}
+
+.text-layer h1 {
+    margin-bottom: 10px;
+}
+
+.text-layer p {
+    font-size: 1.2rem;
+    color: #FFB6C1;
+}
+
+/* Slideshow container */
+.slideshow {
+    position: relative;
+    width: 320px;
+    height: 420px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Image */
+.slideshow img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+/* Slide in */
+.show {
+    animation: slideUpIn 1s ease forwards;
+}
+
+/* Slide out */
+.hide {
+    animation: slideUpOut 1s ease forwards;
+}
+
+@keyframes slideUpIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUpOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-120%);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 💬 TEXT -->
+<div class="text-layer">
+    <h1>Just Some Beautiful Memories ✨</h1>
+    <p>Firstt thinggg
+youuu are theeee besttt part of my lifeee Sruthiiiiiiiiiiluuu 🫠🫠</p>
+<p>idk mana journey ela start ayyindo entooo
+and all i want to say is
+thank you for being there for me alwaysss
+thank you for caring
+thank you for listening 
+anddd everything 
+ikk even you have up and downs in your life but still you were with mee.</p>
+<p>Harshiniiiiiiii neetho una prati moment ani ishtame naaku
+i cherish all our memoriess
+nuvvu naatho eppudu undalii.
+neetho ani ways lo connect aipoinaneee ardam chskoveee pichhidanaa.</p>
+<p>Nuvvu naa life lo undavemo ani anukuntene undalekapotunanee naa intentions ardam chskovee.
+ninnu chaala ante chaala miss aitunane 🫠🫠🫠</p>
+<p>ALL THE BEST FOR YOURRR FUTUREEE SruthiiiiiiiiiiiLUUU🫶💗</p>
+<p>THANK YOU 2025 FOR THIS GURLL 😩🫠</p>
+<p>YOU ARE THE BEST UNPLANNED THING HAPPENED IN MY LIFEE 🫶🫶💗💗 </p>
+<p>I HOPE YOU STAYS WITH ME FOREVER 🥺🥺🫠🫠</p>
+<p>ILLYYYYYY🫶🫶🫶💗🫠 sooo soo muchh 😗😗😗</p>
+</div>
+
+<!-- 📸 SLIDESHOW -->
+<div class="slideshow">
+    <img id="slide">
+</div>
+
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio id="bgMusic">
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+/* ========================= */
+/* 📸 IMAGE SLIDESHOW */
+/* ========================= */
+
+const images = [
+    "images/img1.jpeg",
+    "images/img2.jpeg",
+    "images/img3.jpeg",
+    "images/img4.jpeg",
+    "images/img5.jpeg",
+    "images/img6.jpeg",
+    "images/img7.jpeg",
+    "images/img8.jpeg",
+    "images/img9.jpeg"
+];
+
+const img = document.getElementById("slide");
+let index = 0;
+
+function showNextImage() {
+    img.className = "hide";
+
+    setTimeout(() => {
+        img.src = images[index];
+        img.className = "show";
+        index = (index + 1) % images.length;
+    }, 900);
+}
+
+img.src = images[0];
+img.className = "show";
+index = 1;
+
+setInterval(showNextImage, 3000);
+
+/* ========================= */
+/* 🎵 MUSIC (33s → 60s LOOP) */
+/* ========================= */
+
+const music = document.getElementById("bgMusic");
+const startTime = 33;
+const endTime = 60;
+
+// Play after user interaction (browser rule)
+document.addEventListener("click", () => {
+    music.currentTime = startTime;
+    music.volume = 0;
+    music.play();
+
+    // Smooth fade-in
+    let vol = 0;
+    const fadeIn = setInterval(() => {
+        if (vol < 0.8) {
+            vol += 0.05;
+            music.volume = vol;
+        } else {
+            clearInterval(fadeIn);
+        }
+    }, 200);
+}, { once: true });
+
+// Loop only selected part
+music.addEventListener("timeupdate", () => {
+    if (music.currentTime >= endTime) {
+        music.currentTime = startTime;
+        music.play();
+    }
+});
+</script>
+
+</body>
+</html>
