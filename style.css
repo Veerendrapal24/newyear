@@ -5,14 +5,22 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
+/* ✅ FIXED BODY FOR SCROLLING */
 body {
-    height: 100vh;
+    min-height: 100vh;                     /* allow page to grow */
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    overflow: hidden;
+    overflow-y: auto;                      /* ENABLE SCROLL */
+    overflow-x: hidden;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;               /* start from top */
     text-align: center;
+    padding-top: 40px;
+}
+
+/* Smooth scrolling (optional but nice) */
+html {
+    scroll-behavior: smooth;
 }
 
 /* Glass container */
