@@ -6,46 +6,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(180deg, #0B132B, #060A18);
-    font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    color: #FFD700;
+/* ========================= */
+/* 🌙 BASE PAGE */
+/* ========================= */
+
+html {
+    scroll-behavior: smooth;
 }
 
-/* Text always visible */
+body {
+    margin: 0;
+    background: linear-gradient(180deg, #0B132B, #060A18);
+    font-family: 'Segoe UI', sans-serif;
+    color: #FFD700;
+
+    /* ✅ SCROLL ENABLED */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Scroll wrapper */
+.page-wrapper {
+    min-height: 100vh;
+    padding: 40px 20px 120px;
+}
+
+/* ========================= */
+/* 💬 TEXT */
+/* ========================= */
+
 .text-layer {
-    position: absolute;
-    top: 8%;
+    max-width: 900px;
+    margin: 0 auto 60px;
     text-align: center;
-    z-index: 3;
-    padding: 0 20px;
 }
 
 .text-layer h1 {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .text-layer p {
     font-size: 1.2rem;
     color: #FFB6C1;
+    line-height: 1.7;
+    margin-bottom: 18px;
 }
 
-/* Slideshow container */
+/* ========================= */
+/* 📸 SLIDESHOW */
+/* ========================= */
+
 .slideshow {
     position: relative;
     width: 320px;
     height: 420px;
+    margin: 0 auto;
     overflow: hidden;
-    z-index: 1;
 }
 
-/* Image */
 .slideshow img {
     position: absolute;
     width: 100%;
@@ -93,37 +111,60 @@ body {
 
 <body>
 
-<!-- 💬 TEXT -->
-<div class="text-layer">
-    <h1>Just Some Beautiful Memories ✨</h1>
-    <p>Firstt thinggg
-youuu are theeee besttt part of my lifeee Sruthiiiiiiiiiiluuu 🫠🫠</p>
-<p>idk mana journey ela start ayyindo entooo
-and all i want to say is
-thank you for being there for me alwaysss
-thank you for caring
-thank you for listening 
-anddd everything 
-ikk even you have up and downs in your life but still you were with mee.</p>
-<p>Harshiniiiiiiii neetho una prati moment ani ishtame naaku
-i cherish all our memoriess
-nuvvu naatho eppudu undalii.
-neetho ani ways lo connect aipoinaneee ardam chskoveee pichhidanaa.</p>
-<p>Nuvvu naa life lo undavemo ani anukuntene undalekapotunanee naa intentions ardam chskovee.
-ninnu chaala ante chaala miss aitunane 🫠🫠🫠</p>
-<p>No matter mana iddarini destiny ekkadiki tiska veltadoo am always here for you and i will alwayss here clapping for you Sruthiiiluuuu</p>
-<p>AN endless thank youu for being my unpaid therapis, youre my safe place , my biggest supporter , and the person who makes life feel a little less heavy </p>
-<p>Dear Destiny naaku ee pichhidani kante best vaddu , better vaddu, naaku ee pichhide kavali naaku nuvve kavale 🫠🫠🥹</p>
-<p>you will always have special place in kannaiah's heart💗💗</p>
-<p>ALL THE BEST FOR YOURRR FUTUREEE SruthiiiiiiiiiiiLUUU🫶💗</p>
-<p>THANK YOU 2025 FOR THIS GURLL 😩🫠  YOU ARE THE BEST UNPLANNED THING HAPPENED IN MY LIFEE 🫶🫶💗💗</p>
-<p>I HOPE YOU STAYS WITH ME FOREVER 🥺🥺🫠🫠</p>
-<p>I LOVE YOU 🫶🫶🫶💗🫠 sooo soo muchh 😗😗😗 Sruthiiiiluuuu</p>
-</div>
+<div class="page-wrapper">
 
-<!-- 📸 SLIDESHOW -->
-<div class="slideshow">
-    <img id="slide">
+    <!-- 💬 TEXT -->
+    <div class="text-layer">
+        <h1>Just Some Beautiful Memories ✨</h1>
+
+        <p>Firstt thinggg youuu are theeee besttt part of my lifeee Sruthiiiiiiiiiiluuu 🫠🫠</p>
+
+        <p>
+        idk mana journey ela start ayyindo entooo  
+        thank you for being there for me alwaysss  
+        thank you for caring  
+        thank you for listening  
+        anddd everything.
+        </p>
+
+        <p>
+        Harshiniiiiiiii neetho una prati moment ani ishtame naaku  
+        i cherish all our memoriess.
+        </p>
+
+        <p>
+        Nuvvu naa life lo undavemo ani anukuntene undalekapotunanee  
+        ninnu chaala ante chaala miss aitunane 🫠🫠🫠
+        </p>
+
+        <p>
+        No matter mana iddarini destiny ekkadiki tisko vellina  
+        I will always be here for you Sruthiiiluuuu 💗
+        </p>
+
+        <p>
+        ALL THE BEST FOR YOURRR FUTUREEE SruthiiiiiiiiiiiLUUU 🫶💗
+        </p>
+
+        <p>
+        THANK YOU 2025 FOR THIS GURLL 😩🫠  
+        YOU ARE THE BEST UNPLANNED THING HAPPENED IN MY LIFEE 🫶🫶💗💗
+        </p>
+
+        <p>
+        I HOPE YOU STAYS WITH ME FOREVER 🥺🥺🫠🫠
+        </p>
+
+        <p>
+        I LOVE YOU 🫶🫶🫶💗🫠 sooo soo muchh 😗😗😗 Sruthiiiiluuuu
+        </p>
+    </div>
+
+    <!-- 📸 SLIDESHOW -->
+    <div class="slideshow">
+        <img id="slide">
+    </div>
+
 </div>
 
 <!-- 🎵 BACKGROUND MUSIC -->
@@ -175,29 +216,14 @@ const music = document.getElementById("bgMusic");
 const startTime = 33;
 const endTime = 60;
 
-// Play after user interaction (browser rule)
 document.addEventListener("click", () => {
     music.currentTime = startTime;
-    music.volume = 0;
     music.play();
-
-    // Smooth fade-in
-    let vol = 0;
-    const fadeIn = setInterval(() => {
-        if (vol < 0.8) {
-            vol += 0.05;
-            music.volume = vol;
-        } else {
-            clearInterval(fadeIn);
-        }
-    }, 200);
 }, { once: true });
 
-// Loop only selected part
 music.addEventListener("timeupdate", () => {
     if (music.currentTime >= endTime) {
         music.currentTime = startTime;
-        music.play();
     }
 });
 </script>
