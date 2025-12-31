@@ -19,8 +19,6 @@ body {
     background: linear-gradient(180deg, #0B132B, #060A18);
     font-family: 'Segoe UI', sans-serif;
     color: #FFD700;
-
-    /* ✅ SCROLL ENABLED */
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -32,36 +30,19 @@ body {
 }
 
 /* ========================= */
-/* 💬 TEXT */
-/* ========================= */
-
-.text-layer {
-    max-width: 900px;
-    margin: 0 auto 60px;
-    text-align: center;
-}
-
-.text-layer h1 {
-    margin-bottom: 20px;
-}
-
-.text-layer p {
-    font-size: 1.2rem;
-    color: #FFB6C1;
-    line-height: 1.7;
-    margin-bottom: 18px;
-}
-
-/* ========================= */
-/* 📸 SLIDESHOW */
+/* 📸 SLIDESHOW (BACKGROUND) */
 /* ========================= */
 
 .slideshow {
-    position: relative;
+    position: fixed;                 /* stays in center */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 320px;
     height: 420px;
-    margin: 0 auto;
     overflow: hidden;
+    z-index: 1;                      /* BEHIND text */
+    pointer-events: none;            /* allow scrolling */
 }
 
 .slideshow img {
@@ -106,6 +87,35 @@ body {
         opacity: 0;
     }
 }
+
+/* ========================= */
+/* 💬 TEXT (FOREGROUND) */
+/* ========================= */
+
+.text-layer {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 3;                      /* ABOVE slideshow */
+}
+
+.text-layer h1 {
+    margin-bottom: 20px;
+}
+
+.text-layer p {
+    font-size: 1.2rem;
+    color: #FFB6C1;
+    line-height: 1.7;
+    margin-bottom: 18px;
+
+    /* readability on images */
+    background: rgba(11, 19, 43, 0.45);
+    padding: 8px 14px;
+    border-radius: 12px;
+    display: inline-block;
+}
 </style>
 </head>
 
@@ -113,7 +123,12 @@ body {
 
 <div class="page-wrapper">
 
-    <!-- 💬 TEXT -->
+    <!-- 📸 SLIDESHOW (BEHIND TEXT) -->
+    <div class="slideshow">
+        <img id="slide">
+    </div>
+
+    <!-- 💬 TEXT (ON TOP) -->
     <div class="text-layer">
         <h1>Just Some Beautiful Memories ✨</h1>
 
@@ -158,11 +173,6 @@ body {
         <p>
         I LOVE YOU 🫶🫶🫶💗🫠 sooo soo muchh 😗😗😗 Sruthiiiiluuuu
         </p>
-    </div>
-
-    <!-- 📸 SLIDESHOW -->
-    <div class="slideshow">
-        <img id="slide">
     </div>
 
 </div>
